@@ -11,22 +11,5 @@
 <body>
     <!-- Optional: You can add a message for users who have JavaScript disabled -->
     <p>If you are not redirected automatically, <a href="Home/index.html">click here</a>.</p>
-
-    <?php
-    // Get the visitor's IP address
-    $ip = $_SERVER['REMOTE_ADDR'];
-    // Get the current timestamp
-    $timestamp = date('Y-m-d H:i:s');
-    // Prepare the data
-    $data = "$ip\t$timestamp\n"; // Tab separated values
-    // Save the IP address and timestamp to a file
-    $file = 'visit.txt';
-    if (!file_exists($file)) {
-        // If the file doesn't exist, create it
-        touch($file);
-        chmod($file, 0644); // Set appropriate permissions
-    }
-    file_put_contents($file, $data, FILE_APPEND | LOCK_EX); // Append to file
-    ?>
 </body>
 </html>
